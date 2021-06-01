@@ -202,7 +202,7 @@
 
       // Remove default bet amount from bank
       gameData.bankAmount -= gameData.betAmount;
-      bankAmountDisplay.innerHTML = ` x ${gameData.bankAmount}`;
+      bankAmountDisplay.innerHTML = ` × ${gameData.bankAmount}`;
    }
 
    // When player pushes draw button
@@ -253,8 +253,8 @@
       }
    });
    function updateGemDisplays() {
-      betAmountDisplay.innerHTML = ` x ${gameData.betAmount}`;
-      bankAmountDisplay.innerHTML = ` x ${gameData.bankAmount}`;
+      betAmountDisplay.innerHTML = ` × ${gameData.betAmount}`;
+      bankAmountDisplay.innerHTML = ` × ${gameData.bankAmount}`;
    }
 
    // When player pushes "Play Again" button
@@ -268,7 +268,7 @@
       gameStatus.innerHTML = '';
       payoutDisplay.innerHTML = '';
       drawButton.innerHTML = 'Hold';
-      betAmountDisplay.innerHTML = ' x 5';
+      betAmountDisplay.innerHTML = ' × 5';
 
       setUpRound();
    }
@@ -421,8 +421,8 @@
       gameData.bankAmount += gameData.betAmount * payoutMultipliers[playerHandType];
       
       payoutDisplay.innerHTML = `<img src="images/Gem.svg">`;
-      payoutDisplay.innerHTML += `<p>+${gameData.betAmount * payoutMultipliers[playerHandType]} (<span class="betAmount">${gameData.betAmount}</span> x <span class="multiplier">${payoutMultipliers[playerHandType]}</span>)</p>`
-      bankAmountDisplay.innerHTML = ` x ${gameData.bankAmount}`;
+      payoutDisplay.innerHTML += `<p>+${gameData.betAmount * payoutMultipliers[playerHandType]} (<span class="betAmount">${gameData.betAmount}</span> × <span class="multiplier">${payoutMultipliers[playerHandType]}</span>)</p>`
+      bankAmountDisplay.innerHTML = ` × ${gameData.bankAmount}`;
    }
 
 
