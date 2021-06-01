@@ -7,7 +7,7 @@
    const footer = document.querySelector('footer');
    const actionArea = document.getElementById('actions');
    const drawButton = document.getElementById('draw');
-   const rules = document.getElementById('rules');
+   const start = document.getElementById('start');
    const startButton = document.getElementById('startGame');
    const quitButton = document.getElementById('quit');
    const helpButton = document.getElementById('help');
@@ -169,8 +169,7 @@
       helpButton.removeAttribute('hidden');
       handsPanel.removeAttribute('hidden');
       bankPanel.removeAttribute('hidden');
-      rules.toggleAttribute('hidden');
-      startButton.toggleAttribute('hidden');
+      start.style.display = 'none';
       footer.toggleAttribute('hidden');
 
       // Reload when pushing quit button
@@ -178,16 +177,16 @@
          location.reload();
       });
 
-      // Popup toggling
-      helpButton.addEventListener('click', function() {
-         popup.removeAttribute('hidden');
-      });
-      doneButton.addEventListener('click', function() {
-         popup.toggleAttribute('hidden');
-      });
-
       setUpRound();
    }
+
+   // Popup toggling
+   helpButton.addEventListener('click', function() {
+      popup.removeAttribute('hidden');
+   });
+   doneButton.addEventListener('click', function() {
+      popup.toggleAttribute('hidden');
+   });
 
 
    /// === MAIN GAMEPLAY LOOP ===
