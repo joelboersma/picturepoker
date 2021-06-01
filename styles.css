@@ -1,0 +1,475 @@
+body {
+   background: radial-gradient(50% 50% at 50% 50%, #0E712A 0%, #0B5B21 100%);
+   position: relative;
+   min-height: 100vh;
+
+   font-family: 'Coiny', cursive;
+   line-height: 1;
+   color: white;
+}
+
+.invisible {
+   opacity: 0;
+}
+
+.displayNone {
+   display: none;
+}
+
+.backBox {
+   border-radius: 10px;
+   background: rgba(0, 0, 0, 0.3);
+}
+
+p, footer {
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+   text-align: center;
+}
+
+h1 {
+   color: #00AAFF;
+   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   font-size: 72px;
+   text-align: center;
+   margin: 0;
+   padding: 0;
+   height: 90px;
+}
+
+#rules {
+   font-size: 20px;
+   width: 700px;
+   margin: 0;
+   padding: 20px;
+   line-height: 1.5;
+   z-index: 1;
+}
+
+main {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   flex-grow: 1;
+
+   position: absolute;
+   transform: translate(-50%, -50%);
+   top: 50%;
+   left: 50%;
+}
+
+button {
+   display: block;
+
+   padding: 10px;
+   border-radius: 10px;
+   border: none;
+
+   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+   background-color: #FFC700;
+   font-size: 36px;
+   height: 55px;
+}
+
+button:hover {
+   cursor: pointer;
+}
+
+#startGame {
+   margin-top: 20px;
+   width: 340px;
+   z-index: 2;
+}
+
+#reset {
+   width: 250px;
+   z-index: 2;
+}
+
+h2 {
+   margin: 20px;
+   font-size: 72px;
+   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#gameControl, #game, #gameStatus, #popup section {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+#gameStatus p {
+   font-size: 20px;
+}
+
+#gameStatus h2 {
+   font-weight: normal;
+   margin: 0 0 20px 0;
+}
+
+#gameStatus h2.win {
+   color: #2FA5DF;
+}
+#gameStatus h2.lose {
+   color: #9462FF;
+}
+
+#player, #dealer {
+   display: flex;
+   width: 850px;
+   height: 210px;
+   justify-content: space-between;
+
+   position: absolute;
+}
+
+#dealer {
+   top: 30px;
+}
+
+#player {
+   bottom: 30px;
+}
+
+#player p, #dealer p {
+   position: absolute;
+   font-size: 24px;
+   /* font-weight: bold; */
+}
+
+#dealer p {
+   bottom: -60px;
+}
+
+#player p {
+   top: -60px;
+}
+
+.card {
+   font-family: 'Crete Round', serif;
+   color: black;
+   background-color: white;
+   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+   border-radius: 10px;
+
+   width: 130px;
+   height: 190px;
+   padding: 10px;
+
+   position: absolute;
+   top: 0;
+   
+   font-size: 24px;
+}
+
+.card img {
+   position: absolute;
+   transform: translate(-50%, -50%);
+   top: 50%;
+   left: 50%;
+
+   max-width: 100px;
+   max-height: 100px;
+}
+
+.card.c0 { left: 0; }
+.card.c1 { left: calc((150px + 25px) * 1); }
+.card.c2 { left: calc((150px + 25px) * 2); }
+.card.c3 { left: calc((150px + 25px) * 3); }
+.card.c4 { left: calc((150px + 25px) * 4); }
+
+.card.faceDown {
+   background-color: #2FA5DF;
+}
+
+.card.small {
+   padding: 0;
+   width: 26px;
+   height: 36px;
+   border-radius: 5px;
+   position: static;
+}
+
+.card.small img {
+   max-width: 20px;
+   max-height: 20px;
+}
+
+#player .card {
+   transition: top 0.2s;
+}
+
+#player .card.selectable:hover {
+   cursor: pointer;
+}
+
+#player .card.selected {
+   top: -30px;
+}
+
+#actions {
+   font-size: 36px;
+   display: none;
+   justify-content: center;
+   align-items: center;
+}
+
+#bets {
+   display: flex;
+   align-items: center;
+   margin-left: 72px;
+   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#betButtons {
+   margin: 0;
+}
+
+#betButtons button {
+   border-radius: 0;
+   width: 0;
+   height: 0;
+   padding: 0;
+   margin: 10px;
+   border-left: 35px solid transparent;
+   border-right: 35px solid transparent;
+   background-color: transparent;
+}
+#betUp {
+   border-bottom: 65px solid #FFC700;
+}
+#betDown {
+   border-top: 65px solid #FFC700;
+}
+
+#betStatus h4 {
+   margin: 10px;
+   text-align: center;
+   /* text-decoration: underline; */
+}
+
+#betAmount {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 125px;
+}
+
+#betAmount img {
+   max-height: 48px;
+   margin-right: 10px;
+   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#betAmount div {
+   padding-top: 5px;
+}
+
+#draw {
+   width: 250px;
+   height: 65px;
+   font-size: 48px;
+}
+
+.scoreboard {
+   width: 250px;
+
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+
+   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   text-align: center;
+}
+
+.scoreboard.p1 {
+   left: 20px;
+}
+
+.scoreboard.p2 {
+   right: 20px;
+}
+
+.scoreboard div {
+   margin: 25px 20px 20px 20px;
+}
+
+.scoreboard .name {
+   font-size: 36px;
+}
+
+.scoreboard .points {
+   font-size: 48px;
+}
+
+#quit {
+   position: absolute;
+   bottom: 20px;
+   left: 20px;
+   z-index: 1;
+
+   background-color: #CC0000;
+   font-size: 24px;
+
+   height: 40px;
+}
+
+#help {
+   position: absolute;
+   bottom: 20px;
+   right: 20px;
+   z-index: 1;
+
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+
+   background-color: #9462FF;
+   font-size: 24px;
+}
+
+nav {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   position: absolute;
+   bottom: 0;
+   width: 100vw;
+}
+
+nav ul {
+   display: flex;
+   list-style-type: none;
+   padding: 0;
+   margin: 10px;
+   justify-content: space-evenly;
+}
+
+nav li {
+   padding: 10px;
+}
+
+nav li a {
+   padding: 10px;
+   border-radius: 10px;
+   font-size: 18px;
+   color: #111;
+   transition: all 0.5s;
+}
+
+nav li a:hover {
+   background-color: rgba(0, 0, 0, .1);
+}
+
+#popup {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100%;
+   background-color: #00000088;
+   z-index: 2;
+}
+
+#popup section {
+   background-color: rgb(255, 252, 208);
+   color: black;
+
+   padding: 30px;
+   width: 700px;
+   border-radius: 10px;
+
+   font-size: 20px;
+   line-height: 1.5;
+   
+   position: absolute;
+   transform: translate(-50%, -50%);
+   top: 50%;
+   left: 50%;
+}
+
+#popup section h2 {
+   text-align: center;
+   margin-bottom: 0
+}
+
+#popup section p {
+   margin: 10px 0 10px 0;
+   width: 100%;
+}
+
+#popup section button {
+   margin-top: 20px;
+   width: 125px;
+}
+
+#hands, #bank {
+   width: min-content;
+   padding: 10px;
+   position: absolute;
+   top: 10px;
+   font-size: 36px;
+}
+
+#hands h3, #bank h3 {
+   font-weight: normal;
+   text-decoration: underline;
+   margin: 10px;
+   text-align: center;
+}
+
+#hands {
+   left: 10px;
+}
+
+#hands section {
+   display: flex;
+}
+
+#cardCombos div {
+   display: flex;
+}
+
+#cardCombos div div.card.small {
+   margin: 3px;
+}
+
+#multipliers {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   text-align: end;
+   margin-left: 5px;
+}
+
+#multipliers div {
+   height: 34px;
+   margin: 3px;
+   padding-top: 2px;
+}
+
+#bank {
+   right: 10px;
+}
+
+#bank section {
+   width: 170px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 10px;
+}
+
+#bank img {
+   max-height: 65px;
+   margin-right: 10px;
+}
+
+#bank div {
+   padding-top: 5px;
+}

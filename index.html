@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Crete+Round&display=swap" rel="stylesheet">
+   <link href="styles.css" rel="stylesheet">
+   <script src="script.js" defer></script>
+   <title>Picture Poker [User Test]</title>
+</head>
+<body>
+   <main>
+      <section id="rules" class="backBox">
+         <h1>Picture Poker</h1>
+         <p>Picture Poker is a player vs. dealer card game.</p>
+         <p>At the beginning of each round, you and the dealer are each dealt five cards. Then you have a chance replace as many of your cards as you want to try to get a better hand. Choose cards to discard by clicking on them. You can also bet up to 5 gems each round for a chance at a profit.</p>
+         <p>Once the dealer does the same, you each reveal your cards. Whoever has the best hand wins! And if you win, you earn multiple times your money back. The better your hand, the higher the payout!</p>
+         <p>Best of luck, and have fun!</p>
+      </section>
+      <button id="startGame">Start the Game</button>
+   
+      <div id="dealer" hidden></div>
+      <div id="player" hidden></div>
+
+      <div id="actions" hidden>
+         <button id="draw">Hold</button>
+         <section id="bets">
+            <div id="betButtons">
+               <button id="betUp"></button>
+               <button id="betDown"></button>
+            </div>
+            <div id="betStatus">
+               <h4>Bet</h4>
+               <div id="betAmount">
+                  <img src="images/Gem.svg"><div> x 5</div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div id="gameStatus"></div>
+   </main>
+   
+   <aside id="hands" class="backBox" hidden>
+      <header>
+         <h3>Hands</h3>
+      </header>
+      <section>
+         <div id="cardCombos">
+            <div>
+               <!-- Five of a Kind -->
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+            </div>
+            <div>
+               <!-- Four of a Kind -->
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+            </div>
+            <div>
+               <!-- Full House -->
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Club.svg"></div>
+               <div class="card small"><img src="images/Club.svg"></div>
+            </div>
+            <div>
+               <!-- Three of a Kind -->
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+            </div>
+            <div>
+               <!-- Two Pair -->
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Club.svg"></div>
+               <div class="card small"><img src="images/Club.svg"></div>
+            </div>
+            <div>
+               <!-- One Pair -->
+               <div class="card small"><img src="images/Spade.svg"></div>
+               <div class="card small"><img src="images/Spade.svg"></div>
+            </div>
+         </div>
+         <div id="multipliers">
+            <div>16</div>
+            <div>8</div>
+            <div>6</div>
+            <div>4</div>
+            <div>3</div>
+            <div>2</div>
+         </div>
+      </section>
+   </aside>
+
+   <aside id="bank" class="backBox" hidden>
+      <h3>Bank</h3>
+      <section>
+         <img src="images/Gem.svg"><div> x 100</div>
+      </section>
+   </aside>
+
+   <button id="quit" hidden>Quit</button>
+   <button id="help" hidden>?</button>
+
+   <footer>
+      <nav>
+         <ul>
+            <li>
+               <a href="https://validator.w3.org/check?uri=referer">HTML</a>
+            </li>
+            <li>
+               <a href="https://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+            </li>
+            <li>
+               <a href="sources.html">Sources</a>
+            </li>
+         </ul>
+      </nav>
+   </footer>
+
+   <div id="popup" hidden>
+      <section>
+         <h2>Rules</h2>
+         <p>Picture Poker is a player vs. dealer card game.</p>
+         <p>At the beginning of each round, you and the dealer are each dealt five cards. Then you have a chance replace as many of your cards as you want to try to get a better hand. Choose cards to discard by clicking on them. You can also bet up to 5 gems each round for a chance at a profit.</p>
+         <p>Once the dealer does the same, you each reveal your cards. Whoever has the best hand wins! And if you win, you earn multiple times your money back. The better your hand, the higher the payout!</p>
+         <p>Best of luck, and have fun!</p>
+         <button>Done</button>
+      </section>
+   </div>
+</body>
+</html>
