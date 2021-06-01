@@ -437,6 +437,34 @@ nav li a:hover {
    margin-right: 10px;
 }
 
-#bank div {
+#bank section div {
    padding-top: 5px;
+}
+
+#payout {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: absolute;
+   right: 0;
+   width: 100%;
+}
+
+#payout img {
+   max-height: 35px;
+}
+
+#payout p {
+   padding-top: 5px;
+   font-size: 24px;
+   text-align: right;
+   font-family: 'Coiny', cursive;
+}
+
+.betAmount {
+   color: #fbf;
+}
+
+.multiplier {
+   color: #ffb;
 }

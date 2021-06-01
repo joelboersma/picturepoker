@@ -22,6 +22,7 @@
    const betDown = document.getElementById('betDown');
    const betAmountDisplay = document.querySelector('#betAmount div');
    const bankAmountDisplay = document.querySelector('#bank section div');
+   const payoutDisplay = document.getElementById('payout');
 
    // Audio
    const beginSound = new Audio('media/begin.mp3');
@@ -266,6 +267,7 @@
       playerHand.innerHTML = '';
       dealerHand.innerHTML = '';
       gameStatus.innerHTML = '';
+      payoutDisplay.innerHTML = '';
       drawButton.innerHTML = 'Hold';
       betAmountDisplay.innerHTML = ' x 5';
 
@@ -418,7 +420,9 @@
 
    function payout(playerHandType) {
       gameData.bankAmount += gameData.betAmount * payoutMultipliers[playerHandType];
-      console.log(`${getTypeString(playerHandType)}: ${gameData.betAmount} * ${payoutMultipliers[playerHandType]} = ${gameData.betAmount * payoutMultipliers[playerHandType]}`);
+      
+      payoutDisplay.innerHTML = `<img src="images/Gem.svg">`;
+      payoutDisplay.innerHTML += `<p>+${gameData.betAmount * payoutMultipliers[playerHandType]} (<span class="betAmount">${gameData.betAmount}</span> x <span class="multiplier">${payoutMultipliers[playerHandType]}</span>)</p>`
       bankAmountDisplay.innerHTML = ` x ${gameData.bankAmount}`;
    }
 
