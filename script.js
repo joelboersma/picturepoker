@@ -4,7 +4,6 @@
    // === INIT ===
 
    // Elements
-   const header = document.querySelector('header');
    const footer = document.querySelector('footer');
    const actionArea = document.getElementById('actions');
    const drawButton = document.getElementById('draw');
@@ -28,11 +27,9 @@
    const beginSound = new Audio('media/begin.mp3');
    const cardDealSound = new Audio('media/cardDeal.mp3');
    const tadaSound = new Audio('media/tada.mp3');
-   const buzzerSound = new Audio('media/fail-buzzer.mp3');
    const tromboneSound = new Audio('media/fail-trombone.mp3');
    beginSound.volume = 0.5;
    tadaSound.volume = 0.7;
-   buzzerSound.volume = 0.3;
 
    // Card Icons
    const cardIcons = [
