@@ -12,7 +12,7 @@
    const quitButton = document.getElementById('quit');
    const helpButton = document.getElementById('help');
    const popup = document.getElementById('popup');
-   const doneButton = document.querySelector('#popup section button');
+   const doneButton = document.querySelector('#popup button');
    const playerHand = document.getElementById('player');
    const dealerHand = document.getElementById('dealer');
    const gameStatus = document.getElementById('gameStatus');
