@@ -227,6 +227,7 @@
       }
       console.log(hands);
       
+      sortHands(hands);
       showHands(hands);
       showHandDescriptions(hands);
       const winner = pickWinner(hands);
@@ -360,6 +361,54 @@
             // dealerHand.children[i].innerHTML = `${newVal}<img src="images/${cardIcons[newVal]}">`;
          }
       });
+   }
+
+   function sortHands(hands) {
+      const sortedPlayerHand = sortHand(hands.player);
+      const sortedDealerHand = sortHand(hands.dealer);
+      
+      console.log('Player hand sorted:', sortedPlayerHand);
+      console.log('Dealer hand sorted:', sortedDealerHand);
+   }
+
+   function sortHand(hand) {
+      let sortedHand = [];
+      switch(hand.type) {
+      case handTypes.FiveOfAKind:
+         sortedHand = Array(5).fill(hand.five);
+         break;
+      case handTypes.FourOfAKind:
+         sortedHand = Array(4).fill(hand.four);
+         sortedHand.push(hand.singles[0]);
+         break;
+      case handTypes.FullHouse:
+         sortedHand = Array(3).fill(hand.three);
+         sortedHand.push(hand.pairs[0]);
+         sortedHand.push(hand.pairs[0]);
+         break;
+      case handTypes.ThreeOfAKind:
+         sortedHand = Array(3).fill(hand.three);
+         for (const single of hand.singles) {
+            sortedHand.push(single);
+         }
+         break;
+      case handTypes.TwoPair:
+         const pair1 = Array(2).fill(hand.pairs[0]);
+         const pair2 = Array(2).fill(hand.pairs[1]);
+         sortedHand = pair1.concat(pair2);
+         sortedHand.push(hand.singles[0]);
+         break;
+      case handTypes.OnePair:
+         sortedHand = Array(2).fill(hand.pairs[0]);
+         for (const single of hand.singles) {
+            sortedHand.push(single);
+         }
+         break;
+      default:
+         sortedHand = hand.singles;
+      }
+      
+      return sortedHand;
    }
 
    function showHands(hands) {
@@ -560,8 +609,8 @@
    // Replace all cards with specified values
    function replaceAllCards() {
       // Set new card values
-      gameData.cards.dealer = [1, 2, 3, 4, 5];
-      gameData.cards.player = [1, 2, 3, 4, 6];
+      gameData.cards.dealer = [6, 6, 6, 6, 6];
+      gameData.cards.player = [1, 4, 1, 1, 4];
 
       // Redo player's cards
       const playerCards = playerHand.children;
